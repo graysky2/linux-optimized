@@ -2,7 +2,7 @@ _minor=2
 
 pkgbase=linux
 pkgver=5.14.$_minor
-pkgrel=1
+pkgrel=2
 _ckpatchversion=1
 arch=(x86_64)
 url="http://repo-ck.com"
@@ -17,6 +17,8 @@ source=(
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
+  0002-Bluetooth-Move-shutdown-callback-before-flushing-tx-.patch
+  0003-watchdog-iTCO_wdt-Fix-detection-of-SMI-off-case.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -24,9 +26,11 @@ validpgpkeys=(
 )
 b2sums=('8c796a50b076d070e7336166cf2861ca544121168c9e86539351e4116a66b349a5d0a8aa63e1472260d0110640f81dc69363f1d9a975e354c5e9845de7230521'
         'SKIP'
-        'e7b85b8015414c2405c35f811cc3d201e10fb717e94f4c54c921d4a51dafcd61a2ac61695cf4ad5f51a2dcf5fda0558d99a896ec6478f47e7577c7207a4f7a94'
+        '96d4d9080c78a1771f6440b2a01c35609fa1306899734e2fb34d95dbe3104d1777f7dac7a7e051a0c5c127c74d8df6cbd492324a18e046dcbe39b2eebd647c90'
         '5a191fb995303be264e8721318622bee1d1a3822f805ddf21c1002817ca2e144d6d17e1337f37b32dc3aca1a8754e4354a800c1b4d44417aea0acaf326533b35'
-        '5238b23fb173043f6dd1feff02992da20804ef4b684ba86a93f6f5769c1679ae601e290fd61e985a48e7806a1b7b8633ebef03d13477688b7d81c2f0be9d27c4')
+        '279edb050dc04c583d49a2e27b6d32cf7623096b33479b3be272735943910aeb97c4d9ce092a9fa936c816ae6666d3f987e684348b1d8ae2413aa62d0e6af339'
+        '5e82f1fb885b23ae4b8645846c25efe38331b4e67b9f8f2e6ece67ec9bee81c29bb6a5ba15fb9a620893c0bfb58a6a54284f5447a9fe24660df0d62f4ce24fb7'
+        '23239df3559a12e839cf4abb313b14fbf4483101f3d32de90468ad9a0d64fe77a4ce66d31b75883e6818021846f1a15d469fb453935646fbacd209315bea0bfc')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
